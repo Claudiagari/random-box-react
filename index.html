@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/main.css">
+  <script src="https://unpkg.com/react@15/dist/react.js"></script>
+  <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+  <title>Random box React</title>
+</head>
+<body>
+  <div id="box">
+  </div>
+  <script>
+    const div = React.DOM.div;
+    const h2 = React.DOM.h2;
+    function RandomBox() {
+      function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+      var r = getRandomInt(0, 255);
+      var g = getRandomInt(0, 255);
+      var b = getRandomInt(0, 255);
+      const colorBackground = "rgb(" + r + "," + g + "," + b + ")";
+      var fontType = ["Arial", "Verdana", "Courier", "sans-serif"];
+      const fontStyle = fontType[Math.floor(Math.random() * fontType.length)];
+      const containerStyle = {
+        background: colorBackground,
+        fontFamily: fontStyle,
+        height:'400px',
+      };
+      return div({ style: containerStyle },
+        h2(null, "Random-box"),
+      );
+    }
+    setInterval(function () {
+      ReactDOM.render(
+        RandomBox(),
+        document.getElementById('box')
+      )
+    }, 1500);
+  </script>
+</body>
+</html>

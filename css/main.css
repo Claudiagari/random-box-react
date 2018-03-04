@@ -1,0 +1,19 @@
+body{
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+}
+
+#box div
+{
+  height:400px;
+  width: 400px;
+  text-align:center;
+  -ms-display: flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ 
+}
